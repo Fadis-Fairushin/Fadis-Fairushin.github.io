@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Моя визитка</title>
+  <style>
+    body {
+      background-color: #1a1a1a;
+      color: #ddd;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .card {
+      background-color: #222;
+      padding: 40px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 500px;
+      position: relative;
+      overflow: hidden;
+      transition: color 0.3s ease;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .card h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: #ff6b6b;
+    }
+
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #ff6b6b;
+    }
+
+    .card p {
+      font-size: 16px;
+      margin-bottom: 10px;
+      color: #ccc;
+    }
+
+    .card ul {
+      text-align: left;
+      margin-bottom: 20px;
+      padding-left: 0;
+    }
+
+    .card ul li {
+      font-size: 16px;
+      margin-bottom: 5px;
+      color: #ccc;
+    }
+
+    .card a {
+      color: #ff6b6b;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .card a:hover {
+      color: #ff3d3d;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(0, 0, 0, 0.2) 10%, rgba(0, 0, 0, 0) 70%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: -1;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card:hover {
+      color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .card:hover::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(0, 0, 0, 0.3) 10%, rgba(0, 0, 0, 0.1) 70%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: -1;
+      animation: shadowEffect 5s infinite;
+    }
+
+    @keyframes shadowEffect {
+      0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.3;
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.2;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.3;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>Hi there, I'm Fadis</h1>
+      <h3>An empty-headed and clumsy programmer</h3>
+      <p>I am studying programming in areas such as:</p>
+      <ul>
+        <li>Fullstack</li>
+        <li>Creating chat bots</li>
+        <li>Automation and development of bots for games</li>
+      </ul>
+      <p>I work with languages such as:</p>
+      <ul>
+        <li>HTML/CSS/JS <-> NodeJS</li>
+        <li>Go</li>
+        <li>C#</li>
+        <li>Python</li>
+        <li>AutoHotkey</li>
+      </ul>
+      <p>I'm learning a little Linux, but the main system is Windows</p>
+      <p>In the future, when I learn everything above, I will learn React, Vue, TypeScript and PowerShell. I also want to become proficient in Bash and Batch.</p>
+      <p>In recent years I have been tired and lazy every day, so I made a decision a week ago that I would slowly crawl towards change. Perhaps everything will change in the future and I really want to believe in it. And yes, forgive me for my English, because I don’t know it, but I’m using a translator. I'm from Russia myself...</p>
+      <p>My telegram channel: <a href="https://t.me/fadis_org" target="_blank">https://t.me/fadis_org</a></p>
+      <p>My telegram profile: <a href="https://t.me/my_life_is_too_dark" target="_blank">https://t.me/my_life_is_too_dark</a></p>
+      <p>My github profile: <a href="https://github.com/Fadis-Fairushin" target="_blank">https://github.com/Fadis-Fairushin</a></p>
+    </div>
+  </div>
+</body>
+</html>
