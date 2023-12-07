@@ -61,7 +61,7 @@
     }
 
     .card a {
-      color: #ff6b6b;
+      color: #3644A1;
       text-decoration: none;
       transition: color 0.3s ease;
     }
@@ -93,6 +93,7 @@
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     }
 
+
     .card:hover::after {
       content: '';
       position: absolute;
@@ -108,6 +109,23 @@
       z-index: -1;
       animation: shadowEffect 5s infinite;
     }
+
+	.card:hover > h1,
+	.card:hover > h3,
+	.card:hover > p,
+	.card:hover > ul,
+	.text-justify > p > a {
+	  box-shadow: none;
+	}
+	
+	.text-justify {
+		text-align: justify;
+	}
+	
+	::selection {
+	  background: #ffb7b7; /* Цвет фона при выделении */
+	  color: #170F2E; /* Цвет текста при выделении */
+	}
 
     @keyframes shadowEffect {
       0% {
@@ -135,7 +153,6 @@
         <li>Fullstack</li>
         <li>Creating chat bots</li>
         <li>Automation and development of bots for games</li>
-        <li>Software programming</li>
       </ul>
       <p>I work with languages such as:</p>
       <ul>
@@ -145,12 +162,14 @@
         <li>Python</li>
         <li>AutoHotkey</li>
       </ul>
-      <p>I'm learning a little Linux, but the main system is Windows</p>
-      <p>In the future, when I learn everything above, I will learn React, Vue, TypeScript and PowerShell. I also want to become proficient in Bash and Batch.</p>
-      <p>In recent years I have been tired and lazy every day, so I made a decision a week ago that I would slowly crawl towards change. Perhaps everything will change in the future and I really want to believe in it. And yes, forgive me for my English, because I don’t know it, but I’m using a translator. I'm from Russia myself...</p>
-      <p>My telegram channel: <a href="https://t.me/fadis_org" target="_blank">https://t.me/fadis_org</a></p>
-      <p>My telegram profile: <a href="https://t.me/my_life_is_too_dark" target="_blank">https://t.me/my_life_is_too_dark</a></p>
-      <p>My github profile: <a href="https://github.com/Fadis-Fairushin" target="_blank">https://github.com/Fadis-Fairushin</a></p>
+	  <div class="text-justify">
+		  <p>I'm learning a little Linux, but the main system is Windows</p>
+		  <p>In the future, when I learn everything above, I will learn React, Vue, TypeScript and PowerShell. I also want to become proficient in Bash and Batch.</p>
+		  <p>In recent years I have been tired and lazy every day, so I made a decision a week ago that I would slowly crawl towards change. Perhaps everything will change in the future and I really want to believe in it. And yes, forgive me for my English, because I don’t know it, but I’m using a translator. I'm from Russia myself...</p>
+		  <p>My telegram channel: <a href="https://t.me/fadis_org" target="_blank">https://t.me/fadis_org</a></p>
+		  <p>My telegram profile: <a href="https://t.me/my_life_is_too_dark" target="_blank">https://t.me/my_life_is_too_dark</a></p>
+		  <p>My github profile: <a href="https://github.com/Fadis-Fairushin" target="_blank">https://github.com/Fadis-Fairushin</a></p>
+	  </div>
     </div>
   </div>
 </body>
