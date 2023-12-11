@@ -1,310 +1,52 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My business card</title>
-  <style>
-    body {
-      background-color: #1a1a1a;
-	  background-image: url("background.jpg");
-	  background-size: cover;
-      color: #ddd;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    .container {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		height: 100vh;
-		padding-top: 350px;
-		padding-bottom: 350px;
-    }
-
-    .card {
-      background-color: #222;
-      padding: 40px;
-      border-radius: 10px;
-      text-align: center;
-      max-width: 500px;
-      position: relative;
-      overflow: hidden;
-      transition: color 0.3s ease;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    }
-
-	.card h1 {
-	  font-size: 28px;
-	  margin-bottom: 10px;
-	  color: #ff6b6b;
-	  text-shadow: 0 0 4px rgba(255, 107, 107, 0.3);
-	  animation: shadowAnimation 3s infinite alternate;
-	}
-
-	@keyframes shadowAnimation {
-	  0% {
-		text-shadow: 0 0 4px rgba(255, 107, 107, 0.3);
-	  }
-	  100% {
-		text-shadow: 0 0 8px rgba(255, 107, 107, 0.5);
-	  }
-	}
-
-    .card h3 {
-      font-size: 20px;
-      margin-bottom: 20px;
-      color: #ff6b6b;
-    }
-
-	.card p {
-	  font-size: 16px;
-	  margin-bottom: 10px;
-	  color: #ccc;
-	  border-radius: 20px 40px;
-	  background-color: #141414;
-	  padding: 25px;
-	  border: 1px solid #ff6b6b;
-	  transition: box-shadow 0.3s ease, text-shadow 0.3s ease;
-	}
-
-	.card p:hover {
-	  box-shadow: 0 0 10px 5px rgba(255, 107, 107, 0.3);
-	  text-shadow: 0 0 10px rgba(255, 107, 107, 0.3);
-	}
-
-
-    .card ul {
-      text-align: left;
-      margin-bottom: 20px;
-	  padding-left: 30px;
-    }
-
-	.card ul li {
-	  font-size: 16px;
-	  margin-bottom: 5px;
-	  color: #ac73d5;
-	  background-color: #6633994f;
-	  padding: 10px;
-	  border-radius: 40px 20px;
-	  border: 2px solid #5d2793;
-	  transition: box-shadow 0.3s ease, transform 0.3s ease;
-	}
-
-	.card ul li:hover {
-	  box-shadow: 0 0 16px rgba(93, 39, 147, 0.7);
-	  transform: translateX(50%);
-	}
-
-
-    .card a {
-      color: #3644A1;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .card a:hover {
-      color: #ff3d3d;
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle, rgba(0, 0, 0, 0.2) 10%, rgba(0, 0, 0, 0) 70%);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-      z-index: -1;
-    }
-
-    .card:hover::before {
-      opacity: 1;
-    }
-
-    .card:hover {
-      color: #fff;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    }
-
-
-    .card:hover::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(0, 0, 0, 0.3) 10%, rgba(0, 0, 0, 0.1) 70%);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-      z-index: -1;
-      animation: shadowEffect 5s infinite;
-    }
-
-    .card:hover > h1,
-    .card:hover > h3,
-    .card:hover > p,
-    .card:hover > ul,
-    .text-justify > p > a {
-      box-shadow: none;
-    }
-
-    .text-justify {
-      text-align: justify;
-    }
-
-    ::selection {
-      background: #ffb7b7; /* Цвет фона при выделении */
-      color: #170F2E; /* Цвет текста при выделении */
-    }
-
-    @keyframes shadowEffect {
-      0% {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 0.3;
-      }
-      50% {
-        transform: translate(-50%, -50%) scale(1.2);
-        opacity: 0.2;
-      }
-      100% {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 0.3;
-      }
-    }
-
-	#languageButton {
-	  background-color: transparent;
-	  border: none;
-	  color: #ffd36b;
-	  padding: 10px 20px;
-	  font-size: 16px;
-	  cursor: pointer;
-	  transition: background-color 0.3s ease, color 0.3s ease;
-	  border-radius: 50px;
-	}
-
-	#languageButton:hover {
-	  color: black;
-	  background-color: #ff6b6b;
-	}
-	
-	@media (max-width: 768px) {
-		.container {
-			display: block;
-			padding-top: 0px;
-			padding-bottom: 0px;
-		}
-		
-		.card {
-			max-width: none;
-			background-size: cover;
-			background: linear-gradient( rgb(47 47 47 / 80%), rgb(0 0 0 / 85%) ), url(background.jpg);
-			background-repeat: no-repeat;
-			background-size: cover;
-			background-attachment: fixed;
-			background-position: top;
-		}
-	}
-
-  </style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>My business card</title>
+	<link rel="stylesheet" href="styles/styles.css">
 </head>
+
 <body>
-  <div class="container">
-    <div class="card">
-      <h1>Hi there, I'm Fadis</h1>
-      <h3>An empty-headed and clumsy programmer</h3>
-      <p class="p_oblasti">I am studying programming in areas such as:</p>
-      <ul>
-        <li>Fullstack</li>
-        <li class="chat-bot">Creating chat bots</li>
-        <li class="auto-bot">Automation and development of bots for games</li>
-      </ul>
-      <p class="p_learning">I work with languages such as:</p>
-      <ul>
-        <li>HTML/CSS/JS <-> NodeJS</li>
-        <li>Go</li>
-        <li>C#</li>
-        <li>Python</li>
-        <li>AutoHotkey</li>
-      </ul>
-      <div class="text-justify">
-        <p class="p1">I'm learning a little Linux, but the main system is Windows</p>
-        <p class="p2">In the future, when I learn everything above, I will learn React, Vue, TypeScript and PowerShell. I also want to become proficient in Bash and Batch.</p>
-        <p class="p3">In recent years I have been tired and lazy every day, so I made a decision a week ago that I would slowly crawl towards change. Perhaps everything will change in the future and I really want to believe in it. And yes, forgive me for my English, because I don’t know it, but I’m using a translator. I'm from Russia myself...</p>
-        <p class="telegramChannel">My telegram channel: <a class="a_telegramChannel" href="https://t.me/fadis_org" target="_blank">https://t.me/fadis_org</a></p>
-        <p class="telegramProfile">My telegram profile: <a class="a_telegramProfile" href="https://t.me/my_life_is_too_dark" target="_blank">https://t.me/my_life_is_too_dark</a></p>
-        <p class="githubProfile">My github profile: <a class="a_githubProfile" href="https://github.com/Fadis-Fairushin" target="_blank">https://github.com/Fadis-Fairushin</a></p>
-      </div>
-      <button id="languageButton">Change Language to Russian</button>
-    </div>
-  </div>
-  
-	<script>
-		let language = true; // если true, то включен переход на английский. Если false, то обратно
-
-		const title = document.querySelector('title');
-		const h1 = document.querySelector('h1');
-		const h3 = document.querySelector('h3');
-		const p_oblasti = document.getElementsByClassName('p_oblasti')[0];
-		const chat_bot = document.getElementsByClassName('chat-bot')[0];
-		const auto_bot = document.getElementsByClassName('auto-bot')[0];
-		const p_learning = document.getElementsByClassName('p_learning')[0];
-		const p1 = document.getElementsByClassName('p1')[0];
-		const p2 = document.getElementsByClassName('p2')[0];
-		const p3 = document.getElementsByClassName('p3')[0];
-		const telegramChannel = document.getElementsByClassName('telegramChannel')[0];
-		const telegramProfile = document.getElementsByClassName('telegramProfile')[0];
-		const githubProfile = document.getElementsByClassName('githubProfile')[0];
-		const languageButton = document.getElementById('languageButton');
-
-		function changeLanguage() {
-			if (language) {
-				title.textContent = "My business card";
-				h1.textContent = "Hi there, I'm Fadis";
-				h3.textContent = "An empty-headed and clumsy programmer";
-				p_oblasti.textContent = "I am studying programming in areas such as:"
-				chat_bot.textContent = "Creating chat bots";
-				auto_bot.textContent = "Automation and development of bots for games";
-				p_learning.textContent = "I work with languages such as:";
-				p1.textContent = "I'm learning a little Linux, but the main system is Windows";
-				p2.textContent = "In the future, when I learn everything above, I will learn React, Vue, TypeScript and PowerShell. I also want to become proficient in Bash and Batch.";
-				p3.textContent = "In recent years I have been tired and lazy every day, so I made a decision a week ago that I would slowly crawl towards change. Perhaps everything will change in the future and I really want to believe in it. And yes, forgive me for my English, because I don’t know it, but I’m using a translator. I'm from Russia myself...";
-				telegramChannel.innerHTML = 'My telegram channel: <a class="a_telegramChannel" href="https://t.me/fadis_org" target="_blank">https://t.me/fadis_org</a>';
-				telegramProfile.innerHTML = 'My telegram profile: <a class="a_telegramProfile" href="https://t.me/my_life_is_too_dark" target="_blank">https://t.me/my_life_is_too_dark</a>';
-				githubProfile.innerHTML = 'My github profile: <a class="a_githubProfile" href="https://github.com/Fadis-Fairushin" target="_blank">https://github.com/Fadis-Fairushin</a>';
-				languageButton.textContent = "Change Language to Russian";
-			} else {
-				title.textContent = "Моя визитка";
-				h1.textContent = "Привет, я Фадис";
-				h3.textContent = "Пустоголовый и неуклюжий программист";
-				p_oblasti.textContent = "Я изучаю программирование в таких областях, как:"
-				chat_bot.textContent = "Создание чат-ботов";
-				auto_bot.textContent = "Автоматизация и разработка ботов для игр";
-				p_learning.textContent = "Я работаю с такими языками, как:";
-				p1.textContent = "Я понемногу изучаю Linux, но основная система - Windows";
-				p2.textContent = "В будущем, когда я изучу все вышеперечисленное, то буду изучать React, Vue, TypeScript и PowerShell. Я также хочу стать опытным в Bash и Batch.";
-				p3.textContent = "В последние годы я каждый день устаю и ленюсь, поэтому неделю назад я принял решение медленно ползти к переменам. Возможно, все изменится в будущем, и я очень хочу в это верить. И да, прости меня за мой английский, потому что я его не знаю, но использую переводчик. Я сам из России...";
-				telegramChannel.innerHTML = 'Мой телеграм-канал: <a class="a_telegramChannel" href="https://t.me/fadis_org" target="_blank">https://t.me/fadis_org</a>';
-				telegramProfile.innerHTML = 'Мой телеграм-профиль: <a class="a_telegramProfile" href="https://t.me/my_life_is_too_dark" target="_blank">https://t.me/my_life_is_too_dark</a>';
-				githubProfile.innerHTML = 'Мой профиль на GitHub:  <a class="a_githubProfile" href="https://github.com/Fadis-Fairushin" target="_blank">https://github.com/Fadis-Fairushin</a>';
-				languageButton.textContent = "Изменить язык на английский";
-			}
-		}
-		
-		// Добавляем обработчик события click
-		languageButton.addEventListener('click', function() {
-		  language = !language;
-		  changeLanguage();
-		});
-	</script>
+	<div class="container">
+		<div class="card">
+			<h1>Hi there, I'm Fadis</h1>
+			<h3>An empty-headed and clumsy programmer</h3>
+			<p class="p_oblasti">I am studying programming in areas such as:</p>
+			<ul>
+				<li>Fullstack</li>
+				<li class="chat-bot">Creating chat bots</li>
+				<li class="auto-bot">Automation and development of bots for games</li>
+			</ul>
+			<p class="p_learning">I work with languages such as:</p>
+			<ul>
+				<li>HTML/CSS/JS <-> NodeJS</li>
+				<li>Go</li>
+				<li>C#</li>
+				<li>Python</li>
+				<li>AutoHotkey</li>
+			</ul>
+			<div class="text-justify">
+				<p class="p1">I'm learning a little Linux, but the main system is Windows</p>
+				<p class="p2">In the future, when I learn everything above, I will learn React, Vue, TypeScript and
+					PowerShell. I also want to become proficient in Bash and Batch.</p>
+				<p class="p3">In recent years I have been tired and lazy every day, so I made a decision a week ago that
+					I would slowly crawl towards change. Perhaps everything will change in the future and I really want
+					to believe in it. And yes, forgive me for my English, because I don’t know it, but I’m using a
+					translator. I'm from Russia myself...</p>
+				<p class="telegramChannel">My telegram channel: <a class="a_telegramChannel"
+						href="https://t.me/fadis_org" target="_blank">https://t.me/fadis_org</a></p>
+				<p class="telegramProfile">My telegram profile: <a class="a_telegramProfile"
+						href="https://t.me/my_life_is_too_dark" target="_blank">https://t.me/my_life_is_too_dark</a></p>
+				<p class="githubProfile">My github profile: <a class="a_githubProfile"
+						href="https://github.com/Fadis-Fairushin" target="_blank">https://github.com/Fadis-Fairushin</a>
+				</p>
+			</div>
+			<script src="scripts/change_language.js"></script>
+			<button id="languageButton" onclick="language = !language; changeLanguage();">Change Language to Russian</button>
+		</div>
+	</div>
 </body>
+
 </html>
