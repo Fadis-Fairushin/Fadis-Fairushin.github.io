@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailogs chratsheet post</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="media-style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Tailogs</h1>
+        <nav>
+            <a href="">Cheatsheet Post</a>
+            <a href="contacts.html">Contacts</a>
+            <a href="../index.html">About me</a>
+        </nav>
+        <p>There will be cheat sheets and other information.</p>
+    </header>
+    <main>
+        <div class="post" id="post-8">
+            <h2>XML в Python</h1>
+            <time datetime="2023-12-12T18:02">2023-10-16 | 18:02</time>
+            <p>
+                Ниже код работы с XML в Python
+            </p>
+            <pre>
+                <code class="language-python">
+                    import xml.etree.ElementTree as ET
+
+                    # =================================================================
+                    # Sigment functions
+                    # =================================================================
+                    
+                    # Write info to XML file
+                    def write_info(data, file_name):
+                        root = ET.Element("data")
+                    
+                        for user in data["users"]:
+                            user_element = ET.SubElement(root, "user")
+                            for key, value in user.items():
+                                user_element.set(key, str(value))
+                    
+                        tree = ET.ElementTree(root)
+                        tree.write(file_name, encoding="UTF-8", xml_declaration=True)
+                    
+                    # Read info from XML file
+                    def read_info(file_name):
+                        tree = ET.parse(file_name)
+                        root = tree.getroot()
+                    
+                        data = {"users": []}
+                        for user_element in root.findall("user"):
+                            user = {}
+                            for key, value in user_element.attrib.items():
+                                user[key] = value
+                            data["users"].append(user)
+                    
+                        return data
+                    
+                    # =================================================================
+                    # Multi data
+                    # =================================================================
+                    
+                    data = {
+                        "users": [
+                            {"name": "Vasya", "age": 17, "gender": "male", "state": "happy"},
+                            {"name": "Vlad", "age": 19, "gender": "male", "state": "sad"}
+                        ]
+                    }
+                    
+                    write_info(data, "user.xml")
+                    
+                    user_list = read_info("user.xml")
+                    for user in user_list["users"]:
+                        if user["name"] == "Vlad":
+                            print(user["age"])                    
+                </code>
+            </pre>
+        </div>
+        <div class="post" id="post-8">
+            <h2>LXML в Python</h1>
+            <time datetime="2023-12-12T18:02">2023-10-16 | 18:02</time>
+            <p>
+                Ниже код работы с LXML в Python
+            </p>
+            <pre>
+                <code class="language-python">
+                    import lxml.etree as ET
+
+                    # =================================================================
+                    # Sigment functions
+                    # =================================================================
+                    
+                    # Write info to XML file
+                    def write_info(data, file_name):
+                        root = ET.Element("data")
+                    
+                        for user in data["users"]:
+                            user_element = ET.SubElement(root, "user")
+                            for key, value in user.items():
+                                user_element.set(key, str(value))
+                    
+                        tree = ET.ElementTree(root)
+                        tree.write(file_name, encoding="UTF-8", xml_declaration=True)
+                    
+                    # Read info from XML file
+                    def read_info(file_name):
+                        tree = ET.parse(file_name)
+                        root = tree.getroot()
+                    
+                        data = {"users": []}
+                        for user_element in root.findall("user"):
+                            user = {}
+                            for key, value in user_element.attrib.items():
+                                user[key] = value
+                            data["users"].append(user)
+                    
+                        return data
+                    
+                    # =================================================================
+                    # Multi data
+                    # =================================================================
+                    
+                    data = {
+                        "users": [
+                            {"name": "Vasya", "age": 17, "gender": "male", "state": "happy"},
+                            {"name": "Vlad", "age": 19, "gender": "male", "state": "sad"}
+                        ]
+                    }
+                    
+                    write_info(data, "user.xml")
+                    
+                    user_list = read_info("user.xml")
+                    for user in user_list["users"]:
+                        if user["name"] == "Vlad":
+                            print(user["age"])                           
+                </code>
+            </pre>
+        </div>
+        <div class="post" id="post-8">
+            <h2>JSON в Python</h1>
+            <time datetime="2023-12-12T18:00">2023-10-16 | 18:00</time>
+            <p>
+                Ниже код работы с JSON в Python
+            </p>
+            <pre>
+                <code class="language-python">
+                    import json
+
+                    # =================================================================
+                    # Sigment functions
+                    # =================================================================
+                    
+                    
+                    # Write info to json file
+                    def write_info(data, file_name):
+                        data = json.dumps(data)
+                        data = json.loads(str(data))
+                    
+                        with open(file_name, 'w', encoding="UTF-8") as file:
+                            json.dump(data, file, indent=4)
+                    
+                    
+                    # Read info from jsom file
+                    def read_info(file_name):
+                        with open(file_name, 'r', encoding="UTF-8") as file:
+                            return json.load(file)
+                    
+                    
+                    # =================================================================
+                    # One data
+                    # =================================================================
+                    
+                    #data = {
+                    #    "name": "Fadis",
+                    #    "age": 21,
+                    #    "gender": "male",
+                    #    "state": "dead inside"
+                    #}
+                    
+                    # =================================================================
+                    # Multi data
+                    # =================================================================
+                    
+                    data = {
+                        "users": [] # Массив
+                    }
+                    
+                    data["users"].append({
+                        "name": "Vasya",
+                        "age": 17,
+                        "gender": "male",
+                        "state": "happy"
+                    })
+                    
+                    data["users"].append({
+                        "name": "Vlad",
+                        "age": 19,
+                        "gender": "male",
+                        "state": "sad"
+                    })
+                    
+                    # write_info(data, "user.json")
+                    
+                    user_list = read_info("user.json")
+                    for user in user_list["users"]:
+                        if user.get("name") == "Vlad":
+                            print(user.get("age"))              
+                </code>
+            </pre>
+        </div>
+        <div class="post" id="post-8">
+            <h2>CSV в Python</h1>
+            <time datetime="2023-12-12T17:58">2023-10-16 | 17:58</time>
+            <p>
+                Ниже код работы с CSV в Python
+            </p>
+            <pre>
+                <code class="language-python">
+                    import csv
+
+                    # =================================================================
+                    # Sigment functions
+                    # =================================================================
+                    
+                    # Write info to CSV file
+                    def write_info(data, file_name):
+                        with open(file_name, 'w', newline='', encoding="cp1251") as file:
+                            writer = csv.writer(file, delimiter=';')
+                            writer.writerow(data["users"][0].keys())  # Write header row
+                            for user in data["users"]:
+                                writer.writerow(user.values())
+                    
+                    # Read info from CSV file
+                    def read_info(file_name):
+                        with open(file_name, 'r', newline='', encoding="cp1251") as file:
+                            reader = csv.reader(file, delimiter=';')
+                            header = next(reader)  # Read header row
+                            data = {"users": []}
+                            for row in reader:
+                                user = dict(zip(header, row))
+                                data["users"].append(user)
+                            return data
+                    
+                    # =================================================================
+                    # Multi data
+                    # =================================================================
+                    
+                    data = {
+                        "users": []  # Массив
+                    }
+                    
+                    data["users"].append({
+                        "name": "Vasya",
+                        "age": 17,
+                        "gender": "male",
+                        "state": "happy"
+                    })
+                    
+                    data["users"].append({
+                        "name": "Vlad",
+                        "age": 19,
+                        "gender": "male",
+                        "state": "sad"
+                    })
+                    
+                    write_info(data, "user.csv")
+                    
+                    user_list = read_info("user.csv")
+                    for user in user_list["users"]:
+                        if user.get("name") == "Vlad":
+                            print(user.get("age"))                    
+                </code>
+            </pre>
+        </div>
+        <div class="post" id="post-8">
+            <h2>SQLite в Python</h1>
+            <time datetime="2023-12-12T17:56">2023-10-16 | 17:56</time>
+            <p>
+                Ниже код работы с SQLite в Python
+            </p>
+            <pre>
+                <code class="language-python">
+                    import sqlite3
+
+                    db = sqlite3.connect('fadis.db')
+                    
+                    # Create cursor
+                    c = db.cursor()
+                    
+                    # =================================================================
+                    # Create table
+                    # =================================================================
+                    
+                    #c.execute("""CREATE TABLE articles (
+                    #    title TEXT,
+                    #    full_text TEXT,
+                    #    views INTEGER,
+                    #    author TEXT
+                    #)""")
+                    
+                    #db.commit()
+                    
+                    # =================================================================
+                    # Create a new article
+                    # =================================================================
+                    
+                    #c.execute("INSERT INTO articles VALUES ('Простой заголовок!', 'Простой текст', 100, 'Admin')")
+                    #db.commit()
+                    
+                    #c.execute("INSERT INTO articles VALUES ('Текстовый загаловок', 'Другой текст', 40, 'Vasya')")
+                    #db.commit()
+                    
+                    #c.execute("INSERT INTO articles VALUES ('Обыденность', 'Пустота', 400, 'Аноним')")
+                    #db.commit()
+                    
+                    # =================================================================
+                    # Select data
+                    # =================================================================
+                    
+                    #c.execute("SELECT * FROM articles")
+                    #print(c.fetchall())
+                    
+                    #c.execute("SELECT title FROM articles")
+                    #print(c.fetchall())
+                    
+                    # Интересно что rowid это скрытый параметр который является как бы 
+                    # счетчиком (уникальным номером), тое создавать самим его не нужно
+                    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                    #c.execute("SELECT rowid, title FROM articles")
+                    #print(c.fetchall()) # fetchall возвращает все записи
+                    
+                    #c.execute("SELECT rowid, title FROM articles")
+                    #print(c.fetchmany(1)) # fetchmany возвращает количество записей которые должны вернуться
+                    
+                    #c.execute("SELECT rowid, title FROM articles")
+                    #print(c.fetchone()) # fetchone - возвращает первую встреченную запись, но в отличии от команд выше не в кортеже внутри списка, а просто кортежом
+                    
+                    #c.execute("SELECT rowid, * FROM articles")
+                    #items = c.fetchall()
+                    #for el in items:
+                    #    print(el[1] + "\n" + el[4])
+                    
+                    #c.execute("SELECT rowid, * FROM articles WHERE title <> 'Простой заголовок!'")
+                    #items = c.fetchall()
+                    #for el in items:
+                    #    print(el[1] + "\n" + el[4])
+                    
+                    #c.execute("SELECT rowid, * FROM articles WHERE rowid < 5 ORDER BY rowid DESC")
+                    #items = c.fetchall()
+                    #for el in items:
+                    #    print(el[1] + "\n" + el[4])
+                    
+                    # =================================================================
+                    # delete data
+                    # =================================================================
+                    
+                    #c.execute("DELETE FROM articles WHERE author = 'Admin'")
+                    
+                    # Печатаем что вышло
+                    #c.execute("SELECT rowid, * FROM articles WHERE rowid < 5 ORDER BY views")
+                    #items = c.fetchall()
+                    #print(items)
+                    
+                    # =================================================================
+                    # update data
+                    # =================================================================
+                    
+                    #c.execute("UPDATE articles SET author = 'Admin', views = 1 WHERE title = 'Текстовый загаловок'")
+                    
+                    # Печатаем что вышло
+                    #c.execute("SELECT rowid, * FROM articles WHERE rowid < 5 ORDER BY views")
+                    #items = c.fetchall()
+                    #print(items)
+                    
+                    #db.commit()
+                    
+                    db.close()
+                </code>
+            </pre>
+        </div>
+    </main>
+    <footer>
+        Autor: Fadis Fairushin
+    </footer>
+</body>
+
+</html>

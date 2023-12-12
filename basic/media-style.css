@@ -1,0 +1,28 @@
+@media (min-width: 240px) and (max-width: 768px) {
+    * { 
+        margin: 10px;
+    }
+    
+    header {
+        text-align: center;
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
+    .post > h2, .post > time, .post > p {
+        margin: 10px;
+    }
+
+    footer.about_me {
+        position:relative;
+        text-align: center;
+        margin: -11%;
+        margin-top: 10%;
+        padding: 20px;
+        background-color: #0A0B0E;
+    }
+
+    div.about_me {
+        text-align: justify;
+    }
+}
