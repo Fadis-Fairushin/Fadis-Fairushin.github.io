@@ -106,3 +106,7 @@ div.about_me > ul {
 code {
     color: #8f8f8f;
 }
+
+.contacts > p {
+    color: rgb(87, 141, 177);
+}
