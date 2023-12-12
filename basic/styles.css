@@ -102,3 +102,7 @@ div.about_me {
 div.about_me > ul {
     margin: 10px;
 }
+
+code {
+    color: #8f8f8f;
+}
