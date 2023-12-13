@@ -3,6 +3,8 @@
     font-family: Arial, Helvetica, sans-serif;
     color:rgb(82, 82, 82);
     background-color: #101116;
+    scrollbar-color: purple black;
+    scrollbar-width: thin;
 }
 
 body {
@@ -109,4 +111,16 @@ code {
 
 .contacts > p {
     color: rgb(87, 141, 177);
+}
+
+::-webkit-scrollbar {
+    background-color: black;
+    witdth: 6px;
+    height: 6px;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: purple;
+    border-radius: 5px;
 }

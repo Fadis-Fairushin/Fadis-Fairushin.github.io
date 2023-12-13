@@ -1,3 +1,8 @@
+* {
+    scrollbar-color: purple black;
+    scrollbar-width: thin;
+}
+
 body {
     background-color: #1a1a1a;
     background-image: url("../static/background.jpg");
@@ -201,4 +206,16 @@ nav > a {
     font-size: 16px;
     font-weight: bold;
     transition: background-color 0.3s ease;
+}
+
+::-webkit-scrollbar {
+    background-color: black;
+    witdth: 6px;
+    height: 6px;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: purple;
+    border-radius: 5px;
 }

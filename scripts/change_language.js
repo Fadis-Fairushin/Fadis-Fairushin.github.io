@@ -18,7 +18,7 @@ const languageButton = document.getElementById('languageButton');
 function changeLanguage() {
     if (language) {
         title.textContent = "My business card";
-        h1.textContent = "Hi there, I'm Fadis";
+        h1.textContent = "Hi there, I'm Fairushin Fadis | Tailogs";
         h3.textContent = "An empty-headed and clumsy programmer";
         p_oblasti.textContent = "I am studying programming in areas such as:"
         chat_bot.textContent = "Creating chat bots";
@@ -33,7 +33,7 @@ function changeLanguage() {
         languageButton.textContent = "Change Language to Russian";
     } else {
         title.textContent = "Моя визитка";
-        h1.textContent = "Привет, я Фадис";
+        h1.textContent = "Привет, я Файрушин Фадис | Тайлогс";
         h3.textContent = "Пустоголовый и неуклюжий программист";
         p_oblasti.textContent = "Я изучаю программирование в таких областях, как:"
         chat_bot.textContent = "Создание чат-ботов";
