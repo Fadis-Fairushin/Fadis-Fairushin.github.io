@@ -1,4 +1,5 @@
 # Fadis-Fairushin.github.io
-My personal website business card
+
+Мой персональный вебсайт визитка
 
 [Кликайте чтобы открыть сайт!](https://fadis-fairushin.github.io/)
